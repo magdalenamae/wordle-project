@@ -1,19 +1,29 @@
 const word = 'allow'
 console.log(word)
 
-let guess = document.getElementById('input').value
-console.log(guess)
 
-const divs = document.querySelectorAll('div')
-
- for ( let index in guess){
+let input = document.getElementById('input')
+console.log(input)
+   
+input.addEventListener('keypress', function (e) {
+    let guess = input.value
+    for (let index in guess){
         let letter = guess[index]
         let div = divs[index]
         div.textContent = letter 
         console.log(letter)
-    
-   
- }
+
+        // if (e.key === 'Enter') {
+        //     console.log(input.value)
+        //     divs.textContent = letter
+        // }
+
+    }
+});  
+
+const divs = document.querySelectorAll('div')
+
+
 
 // get user input from text box 
 // display each letter from input in own box? 
