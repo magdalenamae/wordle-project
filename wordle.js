@@ -1,36 +1,87 @@
-const word = 'allow'
-console.log(word)
+const targetWord = 'allow'
+console.log(targetWord)
+let counter = 0
 
 
 let input = document.getElementById('input')
 console.log(input)
-   
-input.addEventListener('keypress', function (e) {
-    let guess = input.value
-    for (let index in guess){
-        let letter = guess[index]
-        let div = divs[index]
-        div.textContent = letter 
-        console.log(letter)
 
-        // if (e.key === 'Enter') {
-        //     console.log(input.value)
-        //     divs.textContent = letter
-        // }
+let row = document.querySelector('.row')
+let output = row.querySelectorAll('.letter')
+let rowIndex = 0
 
-    }
-});  
+        input.addEventListener('keypress', function(e) {
+            
+            let guessWord = input.value
+                counter = 0
 
-const divs = document.querySelectorAll('div')
+                for (let index in guessWord){
+                    if (guessWord.length <= 5){
+                        
+                        let inputCharacter = guessWord[index]
+                        let outputElement = output[index]
+                        let targetCharacter = targetWord[index]
+                
+                        outputElement.textContent = inputCharacter 
+                    
+                        counter += 1
+                        
+                        if (guessWord.length == 5 && guessWord == targetWord){
+
+                        const submit = document.getElementById('submit')
+
+                        submit.addEventListener('click', function() {
+                            outputElement.classList.add('correct')
+                            const message = document.getElementById('p')
+                            message.textContent = 'You won!'
+                           
+                        })
+                    
+                        } else if (inputCharacter == targetCharacter){
+
+                            submit.addEventListener('click', function() {
+                            outputElement.classList.add('correct')
+                        })
+
+                        } else if(guessWord != targetWord){
+                            // console.log(outputElement)
+                            outputElement.classList.remove('correct')
+                        } 
+                        
+                        
+                    }  
+                    
+                
+                }
+
+                    input.addEventListener('change',function(){
+                    input.value='';
+                     },false);
+
+        }); 
+        
+        submit.addEventListener('click', function(){
+            rowIndex += 1
+            console.log(rowIndex)
+            
+        })
+
+        
+        
+
+    
+        
 
 
 
-// get user input from text box 
-// display each letter from input in own box? 
-// see if each element in input matches the word variable
-// if letter in word .match user input 
-// make letter that match  and is in right positon green 
-// letter that matches but not in right position yellow
-// wrong letter red 
 
-// after user has input 6 times, reveal word and show message you lost 
+// green = correct letter and positon 
+// yellow = correct letter wrong positon 
+// grey = not in the variable word
+
+// for (answer = i; i = word.length; i++)
+// check each letter in answer to see if the letter = green, yellow or grey 
+// if letter. match variable color change class styles 
+
+// when enter button is clicked change row
+// when user has complete the 5th row log message 'out of tries for today'
