@@ -1,44 +1,46 @@
 const targetWord = 'allow'
+
 console.log(targetWord)
-let counter = 0
+let columnIndex = 0
 
 
 let input = document.getElementById('input')
 console.log(input)
 
-let row = document.querySelector('.row')
-let output = row.querySelectorAll('.letter')
+let row = document.querySelectorAll('.row')
+console.log(row)
+// acess each row speacidically 
+// acces all as children 
+//update output row in each itteration of the for loop 
+
+
 let rowIndex = 0
 
         input.addEventListener('keypress', function(e) {
             
             let guessWord = input.value
-                counter = 0
+                columnIndex = 0
 
                 for (let index in guessWord){
+                    let outputRow = row[rowIndex].children
                     if (guessWord.length <= 5){
                         
                         let inputCharacter = guessWord[index]
-                        let outputElement = output[index]
+                        let outputElement = outputRow[index]
                         let targetCharacter = targetWord[index]
                 
                         outputElement.textContent = inputCharacter 
                     
-                        counter += 1
+                        columnIndex += 1
+                        // when word is typed and button is clicked grab aeverything you need from input box
+                        //submit button seperate
+                        if (guessWord.length == 5 && guessWord == targetCharacter){
+
+                            submit.addEventListener('click', function() {
+                                outputElement.classList.add('correct')
+                            })                               
                         
-                        if (guessWord.length == 5 && guessWord == targetWord){
-
-                        const submit = document.getElementById('submit')
-
-                        submit.addEventListener('click', function() {
-                            outputElement.classList.add('correct')
-                            const message = document.getElementById('p')
-                            message.textContent = 'You won!'
-                           
-                        })
-                    
                         } else if (inputCharacter == targetCharacter){
-
                             submit.addEventListener('click', function() {
                             outputElement.classList.add('correct')
                         })
@@ -48,8 +50,9 @@ let rowIndex = 0
                             outputElement.classList.remove('correct')
                         } 
                         
-                        
+                    
                     }  
+                    
                     
                 
                 }
@@ -61,6 +64,11 @@ let rowIndex = 0
         }); 
         
         submit.addEventListener('click', function(){
+            const submit = document.getElementById('submit')
+            
+            // outputElement.classList.add('correct')
+            // get word that is submit 
+            // check agaisnt target word and each position 
             rowIndex += 1
             console.log(rowIndex)
             

@@ -1,9 +1,12 @@
 h1{
    text-align: center;
+   color: white;
 }
 
 body {
     display: block;
+    background-color: black;
+    color: white;
 }
 
 h3 {
@@ -13,25 +16,57 @@ h3 {
 input {
     width: 230px;
     margin-bottom: 10px;
+   
+}
+p{
+    text-align: center;
 }
 #container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-column-start:1;
-    grid-column-end: 5;
+    grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 5;
     row-gap: 5px;
     column-gap: 5px;
     padding: 0;
     max-width: 250px;
+    padding-left: 150px;
 }
 
-#container div {
+div {
+    display: flex;
+    padding: 5px;
+}
+
+
+.row div{
     display: flex;
     border: 1px solid black;
     padding: 10px;
     height: 10px;
     width: 10px;
+    background-color: white;
+    color: black;
+}
+
+.letter {
+   display: flex;
+   width: 50px;
+   height: 30px;
+}
+
+
+.correct {
+    background-color: green !important;
+}
+
+.halfcorrect {
+    background-color: yellow !important;
+}
+
+.notcorrect {
+    background-color: grey !important;
 }
