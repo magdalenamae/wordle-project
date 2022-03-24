@@ -16,7 +16,9 @@ h3 {
 input {
     width: 230px;
     margin-bottom: 10px;
-   
+    position: relative;
+    display: block;
+    margin : 0 auto;
 }
 p{
     text-align: center;
@@ -39,6 +41,12 @@ p{
 div {
     display: flex;
     padding: 5px;
+    position: relative;
+    padding-left: 170px;
+    gap: 10px;
+    margin : 0 auto;
+    width: 220px;
+    height: auto;
 }
 
 
@@ -71,4 +79,10 @@ div {
 
 .notcorrect {
     background-color: grey !important;
+}
+
+button {
+    position: relative;
+    display: block;
+    margin : 0 auto;
 }
