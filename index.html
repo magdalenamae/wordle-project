@@ -7,14 +7,34 @@
     <title>Document</title>
     <link href="wordle.css" rel="stylesheet">
     <script defer src="wordle.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Lora&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>WORDLE</h1>
-    <h3>By Magdalena Robinson</h3>
+    <!-- <h3>By Magdalena Robinson</h3> -->
     <p>Enter a Five letter Word</p>
     <lable Enter a five letter Word >
         <input id="input" type="text">
     </lable>
+    <img src="info--v1.png">
+    <aside>
+        <h3>RULES</h3>
+        <p>You have 6 guesses to guess the correct word.
+            You can guess any valid word.
+            After each guess, each letter will turn green, yellow, or gray.
+           <ul>
+            <li> <a id="green">RED</a> is the right letter in right spot</li>
+            <br>
+            <li> <a id="yellow">YELLOW </a> is the right letter in wrong spot</li>
+            <br>
+            <li> <a id="grey">GREY</a> is the wrong letter </li>
+           </ul>
+    </aside>
         <br>
     <container id="container">
         <div class="row">
@@ -61,7 +81,15 @@
         </div>
       
     </container>
+    <br>
     <button id="submit">Submit</button>
     <p id="p"></p>
 </body>
+<footer>
+    <ul id="foot">
+        <li>Made By Magdalena Robinson</li>
+        
+        <li>Copyright 2022</li>
+    </ul>
+</footer>
 </html>

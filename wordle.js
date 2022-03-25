@@ -1481,16 +1481,35 @@ submit.addEventListener('click', function(){
     let guessWord = input.value
     columnIndex = 0
 
-    let targetLetter = ('w','o','r','l','d')
-    for (letter of targetLetter){
-        console.log(letter)
+    let targetLetters = ['w','o','r','l','d']
+    
+    for (index in targetLetters){
+        let letter = targetLetters[index]
+        let inputCharacter = guessWord[index]
+        let outputRow = rows[rowIndex].children
+        let outputElement = outputRow[0]
+
+        if (targetWord == guessWord){
+
+            outputElement.classList.add('correct')
+
+            const paragraph = document.querySelector('p')
+            paragraph.textContent = ('YOU WON!!!')
+
+            targetLetters.splice(index,1, ' ')
+           
+        }
     }
+    console.log(targetLetters)
+    // check yellow letters
     // postion of each letter in input  
     for (let index in guessWord){
-        // the set of divs in each row
+        // the set of divs in each row\
+        
+        // let targetLetters = ['w','o','r','l','d']
         let outputRow = rows[rowIndex].children
         if (guessWord.length <= 5){
-            
+            let letter = targetLetters[index]
             // each character in the guesword - user types in 
             let inputCharacter = guessWord[index]
             // each div in the row  
@@ -1498,34 +1517,24 @@ submit.addEventListener('click', function(){
             // each letter in the target word 
             let targetCharacter = targetWord[index]
         
-            // columnIndex += 1
-            // when word is typed and button is clicked grab aeverything you need from input box
-            //submit button seperate
-           if (targetWord == guessWord){
-
-                const paragraph = document.querySelector('p')
-                paragraph.textContent = ('YOU WON!!!')
+            columnIndex += 1
+            
+            if (targetCharacter == inputCharacter){
+                targetLetters.splice(index, 1, ' ')
                 outputElement.classList.add('correct')
-           
-           } else if (targetCharacter == inputCharacter){
-                
-                outputElement.classList.add('correct')
-
-           }else if (targetWord.includes(inputCharacter)){
-
-                console.log('i work')
+                console.log(targetLetters)
+           }else if (targetLetters.includes(inputCharacter)){
+                console.log(letter +inputCharacter)
                 outputElement.classList.add('halfcorrect')
+                
+             
 
             }else if(guessWord != targetWord){
                 // console.log(outputElement)
                 outputElement.classList.add('notcorrect')
 
 
-            }else if (guessWord != validWords){
-
-                const paragraph = document.querySelector('p')
-                paragraph.textContent = ('This is not a valid wordle word')
-            }       
+            } 
             
      
         }  
@@ -1537,7 +1546,11 @@ submit.addEventListener('click', function(){
   
     rowIndex += 1
     console.log(rowIndex)
-   
+    if (rowIndex ==  6 ){
+        const paragraph = document.querySelector('p')
+        paragraph.textContent = ('YOU LOST!')
+        console.log('you lost')
+    }
 })
 
 
