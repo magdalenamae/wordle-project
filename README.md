@@ -4,7 +4,7 @@ General Assembly Wordle Project
 
 # RULES
     You have 6 guesses to guess the correct word using the input box.
-    You can guess any valid word by typing into the input box with your keyboard and pressing the submit button.
+    You can guess any valid word (it must not contain any double letters)by typing into the input box with your keyboard and pressing the submit button.
     After each guess, each letter will turn red, yellow, or grey.
        
          - RED is the right letter in right spot
